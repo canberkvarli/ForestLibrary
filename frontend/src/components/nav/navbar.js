@@ -3,6 +3,8 @@ import { withRouter } from "react-router-dom";
 import Modal from "../modal/modal";
 import "./navbar.css";
 import song from "../../assets/audioFiles/Gotama - Inner Sanctuary.mp3";
+import helpIcon from "../../assets/Icons/help_2.png";
+import musicIcon from "../../assets/Icons/note.png";
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -99,8 +101,9 @@ class NavBar extends React.Component {
           <div style={{ borderColor: this.state.musicBgColor }}>
             <img
               id="music-icon"
-              src="https://image.flaticon.com/icons/png/16/898/898792.png"
+              src={musicIcon}
               onClick={this.playPause}
+              alt="music"
             />
           </div>
           <div onClick={this.logoutUser}>Logout</div>
@@ -130,9 +133,10 @@ class NavBar extends React.Component {
         <Modal show={this.state.modal} handleClose={this.hideModal} />
         <div className="nav-icons" id="instructions-icon">
           <img
-            src="https://image.flaticon.com/icons/png/64/4293/4293075.png"
+            src={helpIcon}
             id="img-instructions"
             onClick={this.showModal}
+            alt="instructions"
           />
         </div>
         {this.getLinks()}

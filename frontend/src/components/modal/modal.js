@@ -1,34 +1,33 @@
-import React from 'react';
+import React from "react";
 import Instructions from "./instructions";
-import './modal.css';
+import closeIcon from "../../assets/Icons/close.png";
+import "./modal.css";
 
 const Modal = ({ handleClose, show, children }) => {
   const showHideClassName = show ? "modal display-block" : "modal display-none";
 
   const handleWindowClose = (e) => {
-    if(e.target.className === "modal display-block"){
-      handleClose()
+    if (e.target.className === "modal display-block") {
+      handleClose();
     }
-    
-    console.log(e)
-  }
-  
+
+    console.log(e);
+  };
 
   return (
     <div className={showHideClassName} onClick={handleWindowClose}>
-      <section 
-        className="modal-main">
+      <section className="modal-main">
         {children}
         <Instructions />
-        <img 
-        className="instructions-icon"
-        id="icon-close"
-        src="https://image.flaticon.com/icons/png/24/390/390914.png"
-        onClick={handleClose}
+        <img
+          id="icon-close"
+          src={closeIcon}
+          onClick={handleClose}
+          alt="close"
         />
       </section>
     </div>
   );
 };
 
-export default Modal
+export default Modal;

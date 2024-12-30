@@ -161,12 +161,16 @@ html {
   border: 1px solid gray;
   border-radius: 10px;
   background-color: lightseagreen;
-  /* position: absolute; */
-  /* margin-left: -380px; */
   width: 90px;
   height: 28px;
-  /* margin-top: 100px; */
   margin-bottom: 100px;
+}
+
+.music-icon {
+  width: 20px;
+  height: 20px;
+  margin-top: 5px;
+  margin-left: 5px;
 }
 
 .forest::-webkit-scrollbar {
