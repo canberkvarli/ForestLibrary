@@ -10,9 +10,11 @@ const options = {};
 options.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 options.secretOrKey = keys.secretOrKey;
 
-module.exports = passport => {
-    passport.use( new jwtStrategy(options, (jwt_payload, done) => {
-        console.log(jwt_payload);
-        done();
-    }));
+module.exports = (passport) => {
+  passport.use(
+    new jwtStrategy(options, (jwt_payload, done) => {
+      console.log(jwt_payload);
+      done();
+    })
+  );
 };
