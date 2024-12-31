@@ -13,11 +13,9 @@ if (process.env.NODE_ENV === "production") {
 }
 
 const mongoose = require("mongoose");
+const passport = require("passport");
 const users = require("./routes/api/users");
 const trees = require("./routes/api/trees");
-// const User = require("./models/User");
-const bodyParser = require("body-parser");
-const passport = require("passport");
 const leaves = require("./routes/api/leaves");
 
 app.get("/", (req, res) => res.send("Forest Library test"));
@@ -25,11 +23,11 @@ app.get("/", (req, res) => res.send("Forest Library test"));
 const db = require("./config/keys").mongoURI;
 
 mongoose
-  .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log("connected to MongoDB successfully"))
+  .connect(db)
+  .then(() => console.log("Connected to MongoDB successfully"))
   .catch((err) => console.log(err));
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use(passport.initialize());
 require("./config/passport")(passport);
